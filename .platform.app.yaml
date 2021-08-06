@@ -21,7 +21,7 @@ dependencies:
 #relationships:
  # database: "db:mysql"
 
-#hooks
+#hooks.. working on tw restart
 
 hooks:
   build: |
