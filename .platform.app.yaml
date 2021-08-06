@@ -26,12 +26,10 @@ dependencies:
 hooks:
   build: |
     set -e
-    cd web
     getvars.sh
   
   post_deploy: |
     set -e
-    cd web
     restart.sh
 
 # The configuration of app when it is exposed to the web.
