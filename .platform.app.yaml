@@ -24,8 +24,10 @@ dependencies:
 #hooks
 
 hooks:
-  deploy: |
+  build: |
     getvars.sh
+  
+  post_deploy: |
     restart.sh
 
 # The configuration of app when it is exposed to the web.
