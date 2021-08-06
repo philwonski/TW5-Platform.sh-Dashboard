@@ -25,21 +25,18 @@ dependencies:
 
 hooks:
   build: |
+    tiddlywiki wiki5 --init server
     echo "title: build_greetings6" >> build_greetings6.tid
     echo "projectid: $PLATFORM_PROJECT" >> build_greetings6.tid
     echo "appdirectory: $PLATFORM_APP_DIR" >> build_greetings6.tid
     echo "appname: $PLATFORM_APP_NAME" >> build_greetings6.tid
     echo "platformapp: $PLATFORM_APPLICATION" >> build_greetings6.tid
-  
-  post_deploy: |
     cp build_greetings6.tid wiki5/tiddlers
-    tiddlywiki wiki5 --listen port=$PORT
-
 
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: tiddlywiki wiki5 --init server; tiddlywiki wiki5 --listen port=$PORT
+   start: tiddlywiki wiki5 --listen port=$PORT
 
 
 # The size of the persistent disk of the application (in MB).
