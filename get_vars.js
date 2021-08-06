@@ -1,5 +1,5 @@
 /*\
-title: $:/sandbox/myjax.js
+title: $:/platforme1.js
 type: application/javascript
 module-type: macro
 
@@ -33,7 +33,7 @@ Example to get data from wikipedia: <<getPlatform "projectid" "PLATFORM_PROJECT"
     
      var tiddlername = tiddlername || "None";
     
-     let projectId = env.PLATFORM_PROJECT;
+     let projectId = env.+evar;
 
       $tw.wiki.addTiddler({title:tiddlername, text:projectId, type: "application/json"});
       console.log(projectId);
