@@ -26,10 +26,6 @@ dependencies:
 hooks:
   build: |
     echo "title: $PLATFORM_VARIABLES" >> build_greetings2.tid
-    
-   post_deploy: | 
-    echo "title: post_deploy" >> /wiki4/tiddlers/post_deploy.tid
-    echo "text: hi there" >> /wiki4/tiddlers/post_deploy.tid
 
 # The configuration of app when it is exposed to the web.
 web:
