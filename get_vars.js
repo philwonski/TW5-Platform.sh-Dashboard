@@ -7,7 +7,7 @@ module-type: macro
 <<getPlatform "tiddlername" "evar">>
 Example to get data from wikipedia: <<getPlatform "projectid" "PLATFORM_PROJECT">>
 
-
+touch file
 \*/
 
 (function(){
