@@ -30,9 +30,6 @@ web:
 disk: 512
 
 mounts:
-    'run':
-        source: local
-        source_path: run
      'wiki1':
         source: local
-        source_path: run/wiki1       
+        source_path: wiki1       
