@@ -1,6 +1,6 @@
 #!/bin/dash
 # create variables tiddler file
-cat > wiki4/tiddlers/platforme.tid << EOF
+cat > tiddlers/platforme.tid << EOF
 title: platforme
 tag: post_deploy
 today: $(date +%B%e,\ %Y)
