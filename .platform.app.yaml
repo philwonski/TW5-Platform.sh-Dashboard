@@ -32,7 +32,6 @@ hooks:
     echo "platformapp: $PLATFORM_APPLICATION" >> build_greetings6.tid
   
   post_deploy: |
-    echo "routes: $PLATFORM_ROUTES" >> build_greetings6.tid
     cp build_greetings6.tid wiki4/tiddlers
     tiddlywiki wiki4 --listen port=$PORT
 
