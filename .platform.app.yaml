@@ -31,7 +31,7 @@ hooks:
     echo "appname: $PLATFORM_APP_NAME" >> build_greetings6.tid
     echo "platformapp: $PLATFORM_APPLICATION" >> build_greetings6.tid
     
-   post_deploy: | 
+  post_deploy: | 
     cp build_greetings6.tid wiki6/tiddlers
 
 # The configuration of app when it is exposed to the web.
