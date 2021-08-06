@@ -31,8 +31,6 @@ hooks:
     echo "test: hi 622pm" >> build_greetings6.tid
     V=$(echo $PLATFORM_APPLICATION | base64 --decode | json_pp)
     echo "text: $V" >> build_greetings6.tid
-    
-  deploy: |  
     cp build_greetings6.tid wiki7/tiddlers
 
 # The configuration of app when it is exposed to the web.
