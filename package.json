@@ -14,6 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "mysql2": "^1.6.5",
-    "platformsh-config": "^2.0.0"
+    "platformsh-config": "^2.0.0",
+    "tiddlywiki": "^5.1.23"
   }
 }

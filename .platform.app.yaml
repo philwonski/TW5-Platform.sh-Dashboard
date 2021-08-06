@@ -4,7 +4,7 @@
 # See https://docs.platform.sh/user_guide/reference/platform-app-yaml.html
 
 # The name of this app. Must be unique within a project.
-name: app
+name: twapp
 
 # The runtime the application uses.
 type: nodejs:14
@@ -14,13 +14,13 @@ type: nodejs:14
 # The left-hand side is the name of the relationship as it will be exposed
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
-relationships:
-  database: "db:mysql"
+#relationships:
+ # database: "db:mysql"
 
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: "node index.js"
+   start: "tiddlywiki --listen port=$PORT"
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
