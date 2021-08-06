@@ -24,8 +24,10 @@ dependencies:
 #hooks
 
 hooks:
-  build: |
-    echo "line 1" >> build_greetings.txt 
+  deploy: |
+    echo "title: build_greetings" >> /wiki4/tiddlers/build_greetings.tid
+    echo "text: $(PLATFORM_VARIABLES)" >> /wiki4/tiddlers/build_greetings.tid
+
 
 # The configuration of app when it is exposed to the web.
 web:
