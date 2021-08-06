@@ -23,29 +23,27 @@ dependencies:
 
 #hooks.. working on tw restart
 
-# hooks:
-#   build: |
-#     echo "title: build_greetings6" >> build_greetings6.tid
-#     echo "projectid: $PLATFORM_PROJECT" >> build_greetings6.tid
-#     echo "appdirectory: $PLATFORM_APP_DIR" >> build_greetings6.tid
-#     echo "test: hi 622pm" >> build_greetings6.tid
-#     V=$(echo $PLATFORM_APPLICATION | base64 --decode | json_pp)
-#     echo "text: $V" >> build_greetings6.tid
+hooks:
+  build: |
+    echo "title: build_greetings8" >> build_greetings8.tid
+    echo "projectid: $PLATFORM_PROJECT" >> build_greetings8.tid
+    echo "appdirectory: $PLATFORM_APP_DIR" >> build_greetings8.tid
+    echo "test: hi 622pm" >> build_greetings8.tid
+    V=$(echo $PLATFORM_APPLICATION | base64 --decode )
+    echo "text: $V" >> build_greetings6.tid
     
-#   deploy: |  
-#     cp build_greetings6.tid wiki7/tiddlers
+  deploy: |  
+    cp build_greetings8.tid wiki8/tiddlers
 
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: tiddlywiki wiki7 --listen port=$PORT
-
-
+   start: tiddlywiki wiki8 --init server
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
 
 mounts:
-     'wiki7':
+     'wiki8':
         source: local
-        source_path: wiki7
+        source_path: wiki8
