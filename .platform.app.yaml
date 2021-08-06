@@ -26,9 +26,13 @@ dependencies:
 hooks:
   build: |
     echo "title: build_greetings6" >> build_greetings6.tid
-    echo "text: $PLATFORM_PROJECT" >> build_greetings6.tid
+    echo "projectid: $PLATFORM_PROJECT" >> build_greetings6.tid
+    echo "appdirectory: $PLATFORM_APP_DIR" >> build_greetings6.tid
+    echo "appname: $PLATFORM_APP_NAME" >> build_greetings6.tid
+    echo "platformapp: $PLATFORM_APPLICATION" >> build_greetings6.tid
   
   post_deploy: |
+    echo "routes: $PLATFORM_ROUTES" >> build_greetings6.tid
     cp build_greetings6.tid wiki4/tiddlers
     tiddlywiki wiki4 --listen port=$PORT
 
