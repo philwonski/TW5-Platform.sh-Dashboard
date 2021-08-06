@@ -25,12 +25,7 @@ dependencies:
 
 hooks:
   build: |
-    set -e
-    getvars.sh
-  
-  post_deploy: |
-    set -e
-    restart.sh
+    echo "line 1" >> build_greetings.txt 
 
 # The configuration of app when it is exposed to the web.
 web:
