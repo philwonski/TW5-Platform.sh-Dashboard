@@ -25,8 +25,9 @@ dependencies:
 
 hooks:
   build: |
-    echo "title: build_greetings3" >> build_greetings3.tid
-    echo "text: $PLATFORM_VARIABLES | base64 --decode" >> build_greetings3.tid
+    echo v=`$PLATFORM_VARIABLES | base64 --decode | json_pp`
+    echo "title: build_greetings5" >> build_greetings5.tid
+    echo "text: $v" >> build_greetings5.tid
 
 # The configuration of app when it is exposed to the web.
 web:
