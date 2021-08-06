@@ -21,10 +21,17 @@ dependencies:
 #relationships:
  # database: "db:mysql"
 
+#hooks
+
+hooks:
+  post_deploy: |
+    getvars.sh
+    restart.sh
+
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: tiddlywiki wiki4 --init server; tiddlywiki wiki4 --listen port=$PORT
+   start: tiddlywiki wiki4 --listen port=$PORT
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
