@@ -32,19 +32,20 @@ hooks:
     echo "platformapp: $PLATFORM_APPLICATION" >> build_greetings6.tid
   
   post_deploy: |
-    cp build_greetings6.tid wiki4/tiddlers
-    tiddlywiki wiki4 --listen port=$PORT
+    echo "routes: $PLATFORM_ROUTES" >> build_greetings6.tid
+    cp build_greetings6.tid wiki5/tiddlers
+    tiddlywiki wiki5 --listen port=$PORT
 
 
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: tiddlywiki wiki4 --listen port=$PORT
+   start: tiddlywiki wiki5 --init server
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
 
 mounts:
-     'wiki4':
+     'wiki5':
         source: local
-        source_path: wiki4
+        source_path: wiki5
