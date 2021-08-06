@@ -24,7 +24,7 @@ dependencies:
 #hooks
 
 hooks:
-  post_deploy: |
+  deploy: |
     getvars.sh
     restart.sh
 
