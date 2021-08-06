@@ -29,7 +29,7 @@ hooks:
     echo "projectid: $PLATFORM_PROJECT" >> build_greetings6.tid
     echo "appdirectory: $PLATFORM_APP_DIR" >> build_greetings6.tid
     echo "platformapp: $PLATFORM_APPLICATION" >> build_greetings6.tid
-    cp build_greetings6.tid /wiki6/tiddlers
+    cp build_greetings6.tid wiki6/tiddlers
 
 # The configuration of app when it is exposed to the web.
 web:
