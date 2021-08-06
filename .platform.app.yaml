@@ -32,7 +32,6 @@ hooks:
     echo "platformapp: $PLATFORM_APPLICATION" >> build_greetings6.tid
   
   post_deploy: |
-    echo "routes: $PLATFORM_ROUTES" >> build_greetings6.tid
     cp build_greetings6.tid wiki5/tiddlers
     tiddlywiki wiki5 --listen port=$PORT
 
@@ -40,7 +39,8 @@ hooks:
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: tiddlywiki wiki5 --init server
+   start: tiddlywiki wiki5 --init server; tiddlywiki wiki5 --listen port=$PORT
+
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
