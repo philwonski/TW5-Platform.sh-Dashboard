@@ -25,9 +25,8 @@ dependencies:
 
 hooks:
   build: |
-    echo V=`echo $PLATFORM_PROJECT`
     echo "title: build_greetings6" >> build_greetings6.tid
-    echo "text: $(V)" >> build_greetings6.tid
+    echo "text: echo $PLATFORM_PROJECT" >> build_greetings6.tid
 
 # The configuration of app when it is exposed to the web.
 web:
