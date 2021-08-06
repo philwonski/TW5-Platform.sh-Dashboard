@@ -39,4 +39,5 @@ disk: 512
 mounts:
      'wiki4':
         source: local
-        source_path: wiki4       
+        source_path: wiki4 
+        allow: true      
