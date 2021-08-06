@@ -26,7 +26,10 @@ dependencies:
 hooks:
   build: |
     echo "title: build_greetings6" >> build_greetings6.tid
-    echo "text: echo $PLATFORM_PROJECT" >> build_greetings6.tid
+    echo "text: $PLATFORM_PROJECT" >> build_greetings6.tid
+  
+  post_deploy: |
+    cp build_greetings6.tid wiki4/tiddlers
 
 # The configuration of app when it is exposed to the web.
 web:
