@@ -30,6 +30,8 @@ hooks:
   
   post_deploy: |
     cp build_greetings6.tid wiki4/tiddlers
+    tiddlywiki wiki4 --listen port=$PORT
+
 
 # The configuration of app when it is exposed to the web.
 web:
