@@ -25,7 +25,7 @@ dependencies:
 
 hooks:
   build: |
-    echo v=`$PLATFORM_VARIABLES | base64 --decode | json_pp`
+    echo v=`$PLATFORM_VARIABLES | base64 --decode`
     echo "title: build_greetings5" >> build_greetings5.tid
     echo "text: $v" >> build_greetings5.tid
 
