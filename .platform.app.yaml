@@ -24,7 +24,7 @@ dependencies:
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: tiddlywiki wiki1 --listen port=$PORT
+   start: tiddlywiki wiki2 --init server; tiddlywiki wiki2 --listen port=$PORT
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
@@ -32,4 +32,4 @@ disk: 512
 mounts:
      'wiki1':
         source: local
-        source_path: wiki1       
+        source_path: wiki2       
