@@ -35,4 +35,4 @@ mounts:
         source_path: run
      'wiki1':
         source: local
-        source_path: wiki1       
+        source_path: run/wiki1       
