@@ -49,9 +49,9 @@ web:
 
 crons:
     # Re launch the wiki.
-  scheduler:
-    spec: '*/2 * * * *'
-    cmd: 'pm2 restart 0'
+    pm2:
+      spec: '*/2 * * * *'
+      cmd: 'pm2 restart 0'
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
