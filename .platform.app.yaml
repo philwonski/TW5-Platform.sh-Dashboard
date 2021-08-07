@@ -36,10 +36,9 @@ hooks:
       V=$(echo $PLATFORM_APPLICATION | base64 --decode | json_pp)
       echo "$V" >> build_greetings.tid
   
-  deploy: |
+   deploy: |
       set -e
       cp build_greetings.tid wiki14/tiddlers
-
 
 # The configuration of app when it is exposed to the web.
 web:
