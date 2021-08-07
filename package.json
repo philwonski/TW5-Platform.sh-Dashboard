@@ -15,6 +15,7 @@
   "dependencies": {
     "mysql2": "^1.6.5",
     "platformsh-config": "^2.4.1",
+    "pm2": "^5.1.0",
     "tiddlywiki": "^5.1.23"
   }
 }
