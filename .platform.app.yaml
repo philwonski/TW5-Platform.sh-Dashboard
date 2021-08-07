@@ -26,8 +26,8 @@ dependencies:
 hooks:
   
    build: |
-   set -e
-   cp build_greetings.tid wiki14/tiddlers
+      set -e
+      cp build_greetings.tid wiki14/tiddlers
   #   echo "title: build_greetings" >> build_greetings.tid
   #   echo "type: application/json" >> build_greetings.tid
   #   echo "projectid: $PLATFORM_PROJECT" >> build_greetings.tid
