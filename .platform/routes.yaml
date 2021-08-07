@@ -3,10 +3,10 @@
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
-"https://www.{default}/":
+"https://www.{default}/dash":
     type: upstream
-    upstream: "app:http"
+    upstream: "dashapp:http"
 
-"https://{default}/":
+"https://{default}/dash":
     type: redirect
-    to: "https://www.{default}/"
+    to: "https://www.{default}/dash"
