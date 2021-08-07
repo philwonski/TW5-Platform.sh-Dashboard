@@ -37,8 +37,8 @@ hooks:
       echo "$V" >> build_greetings.tid
   
   deploy: |
-    set -e
-    cp build_greetings.tid wiki14/tiddlers
+      set -e
+      cp build_greetings.tid wiki14/tiddlers
 
 
 # The configuration of app when it is exposed to the web.
