@@ -23,26 +23,26 @@ dependencies:
 
 #hooks 
 
-hooks:
+# hooks:
   
-  build: |
-    echo "title: build_greetings" >> build_greetings.tid
-    echo "type: application/json" >> build_greetings.tid
-    echo "projectid: $PLATFORM_PROJECT" >> build_greetings.tid
-    echo "appdirectory: $PLATFORM_APP_DIR" >> build_greetings.tid
-    echo "test: hi 714pm" >> build_greetings.tid
-    echo $'\n' >> build_greetings.tid
-    V=$(echo $PLATFORM_APPLICATION | base64 --decode | json_pp)
-    echo "$V" >> build_greetings.tid
+#   build: |
+#     echo "title: build_greetings" >> build_greetings.tid
+#     echo "type: application/json" >> build_greetings.tid
+#     echo "projectid: $PLATFORM_PROJECT" >> build_greetings.tid
+#     echo "appdirectory: $PLATFORM_APP_DIR" >> build_greetings.tid
+#     echo "test: hi 714pm" >> build_greetings.tid
+#     echo $'\n' >> build_greetings.tid
+#     V=$(echo $PLATFORM_APPLICATION | base64 --decode | json_pp)
+#     echo "$V" >> build_greetings.tid
   
-  deploy: |
-    cp build_greetings.tid wiki12/tiddlers
+#   deploy: |
+#     cp build_greetings.tid wiki12/tiddlers
 
 
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: tiddlywiki wiki11 --init server
+   start: tiddlywiki wiki11 --listen port=$PORT username=demo password=yaml readers=demo writers=demo
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
