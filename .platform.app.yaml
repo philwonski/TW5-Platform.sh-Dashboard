@@ -26,9 +26,7 @@ dependencies:
 hooks:
   
   build: |
-    tiddlywiki wiki11 --init server
-  
-  deploy: |
+    tiddlywiki wiki11 --init server    
     echo "title: build_greetings" >> build_greetings.tid
     echo "type: application/json" >> build_greetings.tid
     echo "projectid: $PLATFORM_PROJECT" >> build_greetings.tid
@@ -37,6 +35,8 @@ hooks:
     echo $'\n' >> build_greetings.tid
     V=$(echo $PLATFORM_APPLICATION | base64 --decode | json_pp)
     echo "$V" >> build_greetings.tid
+  
+  deploy: |
     cp build_greetings.tid wiki11/tiddlers
 
 
