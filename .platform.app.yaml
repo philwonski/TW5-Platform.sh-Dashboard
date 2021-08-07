@@ -36,18 +36,18 @@ dependencies:
 #     echo "$V" >> build_greetings.tid
   
 #   deploy: |
-#     cp build_greetings.tid wiki12/tiddlers
+#     cp build_greetings.tid wiki13/tiddlers
 
 
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: tiddlywiki wiki11 --listen port=$PORT username=demo password=yaml readers=demo writers=demo
+   start: tiddlywiki wiki11 --init server
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
 
 mounts:
-     'wiki12':
+     'wiki13':
         source: local
-        source_path: wiki12
+        source_path: wiki13
