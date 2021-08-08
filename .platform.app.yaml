@@ -43,14 +43,8 @@ hooks:
 # The configuration of app when it is exposed to the web.
 web:
   commands:
-   start: pm2 start 'tiddlywiki wiki14 --listen port=$PORT username=demo password=yaml readers=demo writers=demo'
+   start: tiddlywiki wiki14 --listen port=$PORT username=demo password=yaml readers=demo writers=demo
    #start: tiddlywiki wiki14 --init server
-
-crons:
-    # Re launch the wiki.
-    pm2:
-      spec: '*/2 * * * *'
-      cmd: 'pm2 restart 0'
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
