@@ -52,7 +52,7 @@ Display apps in your platform acct -- and their env vars and particulars -- in a
 
 5. IF YOU MIMIC STEP 4 HOOKS ABOVE FOR OTHER APPS LIKE DRUPAL/WP/ETC, you can easily build a neat dashboard showing all your platform.sh apps! 
 
-![Dashboard screenshot](platform_dot_sh_custom_dashboard.png)
+![Dashboard screenshot](platform_dot_sh_custom_app_dashboard.png)
 
 ## See it 
 
@@ -64,7 +64,7 @@ Display apps in your platform acct -- and their env vars and particulars -- in a
 
 2. Tweak shell commands (3.2.2 under YAML Details) since json object has lots of nesting and may not always be valid json. 
 
-3. Try different CI/CD workflows and redeploy + restarts... Note that the node_modules folder is a little large now because I also tried to get pm2 working to do restarts, but haven't succeeded yet. This is also why there are random little shell scripts in the repo, I'm still expirimenting. 
+3. Try different CI/CD workflows and redeploy + restarts... Note that the node_modules / package.json is a little large now because I also tried to get pm2 working to do restarts, but haven't succeeded yet. This is also why there are random little shell scripts in the repo, I'm still expirimenting. 
 
 4. Once the hooks are perfected, upgrade the plan so I can add hooks to other apps and see their data displayed in the dashboard. 
 
