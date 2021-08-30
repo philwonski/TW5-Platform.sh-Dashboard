@@ -24,9 +24,9 @@ Display apps in your platform acct -- and their env vars and particulars -- in a
 ## Basics
 
 1. It's really just a single YAML file that's unique, but there is some prework. 
-    1. I used p.sh's node template and ran `npm install tiddlywiki` inside of `nodejs1tw` to make sure I had proper node modules and package.json. 
+    1. I used p.sh's node template and ran `npm install tiddlywiki` in the top level of the rep to make sure I had proper node modules and package.json. 
     2. After that, I just edited the `.platform.app.yaml` file. More or that in a sec under YAML Details. 
-2. I also had a folder for a wordpress deploy... Since my developer account only supports 1 deployed app, I could not test many apps at once. 
+2. I also had a folder for a wordpress deploy... Since my developer account only supports 1 deployed app, I could not test many apps at once. So the only app in the dashboard will be the dashboard app itself :-)
 
 ## YAML Details
 
@@ -34,7 +34,7 @@ Display apps in your platform acct -- and their env vars and particulars -- in a
 
 2. In the file `.platform.app.yaml`, you can make use of whatever "build hooks" you need to pack/init/whatever your app. Depending on your needs and deploy steps, there is some art to deciding which of the three opportunities to run hooks you should use--
     1. *build* hooks, aptly-named, are those first hooks you want to run to start building your app. Note that not all env variables, such as routes, are available at this stage, since you haven't deployed yet. 
-    2. *deploy* hooks could in thoery be the commands you would normally run to start your app, but may not be needed if your app can be deployed with a single command under `web -> commands -> start`.
+    2. *deploy* hooks could in theory be the commands you would normally run to start your app, but may not be needed if your app can be deployed with a single command under `web -> commands -> start` in the YAML file.
     3. *post-deploy* hooks are like they sound, commands that you run once the app is deployed. These sounded super handy at first, but for me are a little tricky so far, because storage is designed to be read-only at this stage -- so you can't write to your storage in the post-deploy hooks. 
 
 3. On storage, note that these solutions like p.sh often use containers, and we shouldn't lose sight of the fact that storage is ephemeral (ie not persistent in the way we're used to). 
@@ -64,7 +64,7 @@ Display apps in your platform acct -- and their env vars and particulars -- in a
 
 2. Tweak shell commands (3.2.2 under YAML Details) since json object has lots of nesting and may not always be valid json. 
 
-3. Try different CI/CD workflows and redeploy + restarts... Note that the node_modules / package.json is a little large now because I also tried to get pm2 working to do restarts, but haven't succeeded yet. This is also why there are random little shell scripts in the repo, I'm still expirimenting. 
+3. Try different CI/CD workflows and redeploy + restarts... Note that the node_modules / package.json is a little large now because I also tried to get pm2 working to do restarts, but haven't succeeded yet. This is also why there are random little shell scripts in the repo, I'm still experimenting. 
 
 4. Once the hooks are perfected, upgrade the plan so I can add hooks to other apps and see their data displayed in the dashboard. 
 
