@@ -1,0 +1,19 @@
+created: 20210808002456728
+creator: demo
+modified: 20210808004022437
+modifier: demo
+revision: 0
+tags: 
+title: template/listapp
+type: text/vnd.tiddlywiki
+
+<div class="appcard">
+Project ID: {{!!projectid}}
+
+<h2>App Directory: {{!!appdirectory}}</h2>
+
+Dependencies: {{##dependencies}}
+<br>
+Mounts: {{##mounts}}
+</div>
+

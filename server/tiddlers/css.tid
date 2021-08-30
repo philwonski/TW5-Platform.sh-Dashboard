@@ -1,0 +1,10 @@
+created: 20210808003200395
+creator: demo
+modified: 20210808004035925
+modifier: demo
+revision: 0
+tags: $:/tags/Stylesheet
+title: css
+type: text/css
+
+.appcard {background-color: gainsboro; padding: 5%;}

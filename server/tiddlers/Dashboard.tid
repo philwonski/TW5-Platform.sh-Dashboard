@@ -1,0 +1,22 @@
+created: 20210808000515245
+creator: demo
+modified: 20210808003633661
+modifier: demo
+revision: 0
+tags: 
+title: Dashboard
+type: text/vnd.tiddlywiki
+
+\define countapps()
+<$count filter="[is[tiddler[search:title[greeting]!search:title[schema]]"/>
+\end
+
+\define dependencies()
+{{{ [all[current]getindex[/dependencies]] }}}
+\end
+
+You have <<countapps>> apps in this project.
+
+
+<$list filter="[is[tiddler]search:title[greeting]!search:title[schema]]" template="template/listapp"/>
+
