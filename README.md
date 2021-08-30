@@ -8,7 +8,7 @@ Display the apps in your platform.sh account -- and their env vars and particula
 
 2. p.sh supports many kinds of apps, and is popular for "fleet management" of websites, such as lots of drupal or magento instances. 
 
-3. p.sh uses the power of infrastructure-as-code to streamline the deployment and management of your apps, and associated infrastructure like databases. As such, it's all about the YAML files. Edit these files and push to git and voila, all your devops are belong to us. 
+3. p.sh uses the power of infrastructure-as-code to streamline the deployment and management of your apps and the associated infrastructure like databases. As such, it's all about the YAML files. Edit these files and push to git and voila, all your devops are belong to us. 
 
 ## Purpose of Repo
 
@@ -24,9 +24,9 @@ Display the apps in your platform.sh account -- and their env vars and particula
 ## Basics
 
 1. It's really just a single YAML file that's unique, but there is some prework. 
-    1. I used p.sh's node template and ran `npm install tiddlywiki` in the top level of the rep to make sure I had proper node modules and package.json. 
+    1. I used p.sh's node template and ran `npm install tiddlywiki` in the top level of the repo to make sure I had proper node modules and package.json. 
     2. After that, I just edited the `.platform.app.yaml` file. More on that in a sec under YAML Details. 
-2. I also had a folder for a wordpress deploy... Since my developer account only supports 1 deployed app, I could not test many apps at once. So the only app in the dashboard will be the dashboard app itself :-)
+2. I also had a folder for a wordpress deploy... Since my developer account only supports 1 deployed app, I could not test many apps at once. So the only app in the dashboard will be the dashboard app itself :nerd_face:
 
 ## YAML Details
 
@@ -39,7 +39,7 @@ Display the apps in your platform.sh account -- and their env vars and particula
 
 3. On storage, note that these solutions like p.sh often use containers, and we shouldn't lose sight of the fact that storage is ephemeral (ie not persistent in the way we're used to). 
     1. In the case of PHP monoliths, you at least have a database to help persist the state of your application; but in the case of TiddlyWiki on Node, we don't use a database, and the state is maintained in tiddler files in your storage. 
-    2. For TiddlyWiki, my approach was to deploy the app twice, specifying the same "bucket" for storage each time:
+    2. For TiddlyWiki, my approach was to deploy the same app twic with different hooks each time, but specifying the same "bucket" for storage:
         1. **First deploy**: comment out all hooks and use the start command to init the wiki in your designated storage like `tiddlywiki wiki14 --init server`. In hindsight, I believe it may be better to use the first deploy to do the `init` in a hook instead (build or deploy hook, I need to start over and will update this readme). This is because when you init a new wiki in a start command, the storage is already read-only, so you can't write the tiddlywiki.info file your wiki requires.  
         2. **Subsequent deploy(s)**: use the hooks to gather environment variables, collate the info into a json object, and drop into our dashboard's storage. 
 
@@ -68,10 +68,10 @@ Display the apps in your platform.sh account -- and their env vars and particula
 
 4. Once the hooks are perfected, upgrade the plan so I can add hooks to other apps and see their data displayed in the dashboard. 
 
-5. Figure out how to get the *Routes* environment variable object and include it in the dash. This is tricky for the TW node app itself since the storage is not writeable once the Routes are available to be recorded in _postdeploy_ ... in theory it may be easier to get Routes when using multiple apps, if you redeploy the dashboard every time you deploy another app... still thinking about this... 
+5. Figure out how to get the *Routes* environment variable object and include it in the dash. This is tricky for the TW node app itself since the storage is not writeable once the Routes are available to be recorded in `post_deploy` hooks... in theory it may be easier to get Routes when using multiple apps, if you redeploy the dashboard every time you deploy another app... still thinking about this... 
 
 ## Bonus
 
 1. Since you can add a db with just one line in a YAML file, it would be cool to **run a database alongside this** and use a tiddlywiki plugin that works with a db. 
 
-2. You can **run an express server** on platform.sh, so like with the db, you can probably do some interesting stuff defining endpoints and whatnot with just YAML. 
+2. You can **run an express server** on platform.sh, so like with the db, you can probably do some interesting stuff defining endpoints and whatnot, defining everything with just YAML and some shell scripts. 
