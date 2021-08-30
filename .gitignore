@@ -1,4 +1,5 @@
 node_modules/*
+get_vars.js
 .DS_Store
 .idea/*
 
