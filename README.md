@@ -39,18 +39,18 @@ Display the apps in your platform.sh account -- and their env vars and particula
 
 3. On storage, note that these solutions like p.sh often use containers, and we shouldn't lose sight of the fact that storage is ephemeral (ie not persistent in the way we're used to). 
     1. In the case of PHP monoliths, you at least have a database to help persist the state of your application; but in the case of TiddlyWiki on Node, we don't use a database, and the state is maintained in tiddler files in your storage. 
-    2. For TiddlyWiki, my approach was to deploy the same app twic with different hooks each time, but specifying the same "bucket" for storage:
+    2. For TiddlyWiki, my approach was to deploy the same app twice with different hooks each time, but specifying the same "bucket" for storage:
         1. **First deploy**: comment out all hooks and use the start command to init the wiki in your designated storage like `tiddlywiki wiki14 --init server`. In hindsight, I believe it may be better to use the first deploy to do the `init` in a hook instead (build or deploy hook, I need to start over and will update this readme). This is because when you init a new wiki in a start command, the storage is already read-only, so you can't write the tiddlywiki.info file your wiki requires.  
-        2. **Subsequent deploy(s)**: use the hooks to gather environment variables, collate the info into a json object, and drop into our dashboard's storage. 
+        2. **Subsequent deploy(s)**: use the hooks to gather environment variables, collate the info into a json object (or tiddler file), and drop it into our dashboard's storage. 
 
 
 ### Hooks are our friends 
 
 4. As we see in the `.platform.app.yaml` file, when re-deploying in 3.2.2 above, we are using both the *build* hook and the *deploy* hook:
-    1. The _build hook_ is just basic shell commands to gather some environment variables and write them to a "tiddler" file, which can later be consumed (and displayed!) by our dashboard. 
-    2. The _deploy hook_ is used to move the tiddler file we created in the build hook and copy it into the storage for our dashboard. 
+    1. The _build hook_ is just basic shell commands to gather some environment variables and write them to a "tiddler" file, which can later be consumed (and displayed) by our dashboard. 
+    2. The _deploy hook_ is used to copy the tiddler file we created in the build hook into the storage for our dashboard. 
 
-5. IF YOU MIMIC STEP 4 HOOKS ABOVE FOR OTHER APPS LIKE DRUPAL/WP/ETC, you can easily build a neat dashboard showing all your platform.sh apps! 
+5. **If you mimic Step 4 above for other apps like Drupal/WP/Etc**, you can easily build a neat dashboard showing all your platform.sh apps! 
 
 ![Dashboard screenshot](platform_dot_sh_custom_app_dashboard.png)
 
@@ -60,18 +60,18 @@ Display the apps in your platform.sh account -- and their env vars and particula
 
 ## To-Do & Notes 
 
-1. Change init workflow for initial deploy (3.2.1 under _YAML Details_ above).
+1. Change init workflow for initial deploy of tiddlywiki with `tiddlywiki --init` (3.2.1 under _YAML Details_ above).
 
 2. Tweak shell commands (3.2.2 under _YAML Details_), since json object has lots of nesting and may not always be valid json. 
 
 3. Try different CI/CD workflows and redeploy + restarts... Note that the node_modules / package.json is a little large now because I also tried to get pm2 working to do restarts, but haven't succeeded yet. This is also why there are random little shell scripts in the repo, I'm still experimenting. 
 
-4. Once the hooks are perfected, upgrade the plan so I can add hooks to other apps and see their data displayed in the dashboard. 
+4. Upgrade the plan so I can add hooks to other apps and see their data displayed in the dashboard. 
 
-5. Figure out how to get the *Routes* environment variable object and include it in the dash. This is tricky for the TW node app itself since the storage is not writeable once the Routes are available to be recorded in `post_deploy` hooks... in theory it may be easier to get Routes when using multiple apps, if you redeploy the dashboard every time you deploy another app... still thinking about this... 
+5. Figure out how to get the *Routes* environment variable object and include it in the dashboard. This is tricky for the TW node app itself, since the storage is not writeable once the Routes are available to be recorded in `post_deploy` hooks... in theory it may be easier to get Routes when using multiple apps, if you redeploy the dashboard app every time you deploy another app... still thinking about this... 
 
 ## Bonus
 
 1. Since you can add a db with just one line in a YAML file, it would be cool to **run a database alongside this** and use a tiddlywiki plugin that works with a db. 
 
-2. You can **run an express server** on platform.sh, so like with the db, you can probably do some interesting stuff defining endpoints and whatnot, defining everything with just YAML and some shell scripts. 
+2. You can **run an express server** on platform.sh, so like with the db, you can probably do some interesting stuff defining endpoints and whatnot, making everything  happen with just YAML and some shell scripts. 
