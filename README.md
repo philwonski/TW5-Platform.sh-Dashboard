@@ -25,7 +25,7 @@ Display the apps in your platform.sh account -- and their env vars and particula
 
 1. It's really just a single YAML file that's unique, but there is some prework. 
     1. I used p.sh's node template and ran `npm install tiddlywiki` in the top level of the repo to make sure I had proper node modules and package.json. 
-    2. Importantly, for the custom dashboard display, you need copy over the Wiki files. Navigate on your machine to yourproject`/node_modules/tiddlwiki/editions/server`, replacing the contents of that folder with the entire contents of this repo's `server` folder.  
+    2. Importantly, for the custom dashboard display, you need to copy over the Wiki files. Navigate on your machine to yourproject`/node_modules/tiddlwiki/editions/server`, replacing the contents of that folder with the entire contents of this repo's `server` folder.  
     3. After that, I just edited the `.platform.app.yaml` file. More on that in a sec under YAML Details. 
 2. I also had a folder for a wordpress deploy... Since my developer account only supports 1 deployed app, I could not test many apps at once. So the only app in the dashboard will be the dashboard app itself :nerd_face:
 
