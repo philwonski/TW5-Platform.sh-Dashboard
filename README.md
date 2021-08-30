@@ -17,7 +17,7 @@ Display the apps in your platform.sh account -- and their env vars and particula
 2. To experiment with the platform, I wanted to see if it could be a cool new place to host [TiddlyWikis](https://tiddlywiki.com), and deploy TWs at will with YAML. 
 
 3. In doing the experiment, I learned that there could also be a great use case for a simple node app like this as part of a fleet management framework. 
-    1. For example, if a p.sh team member wants to see an overview of all apps deployed, they need risky permissions: they have to have git access to the environment, or access to the platform account itself. Yikes. 
+    1. For example, if a p.sh team member wants to see an overview of all apps deployed, they need risky/sensitive permissions: they have to have git access to the environment, or access to the platform account itself.
     2. Let's say you want a nice clean digest of the apps running, and their associated environment variables, but you don't want to be in the danger zone every time you view this info... 
     3. This node app will provide that, by ingesting JSON from all deployed apps and providing the digest in a neat webpage. 
 
