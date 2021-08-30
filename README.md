@@ -4,7 +4,7 @@ Display the apps in your platform.sh account -- and their env vars and particula
 
 ## Background
 
-1. Platform.sh is a PaaS solution for managing a fleet of apps.
+1. [Platform.sh](https://platform.sh) is a PaaS solution for managing a fleet of apps.
 
 2. p.sh supports many kinds of apps, and is popular for "fleet management" of websites, such as lots of drupal or magento instances. 
 
