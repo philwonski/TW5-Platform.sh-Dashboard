@@ -69,3 +69,9 @@ Display the apps in your platform.sh account -- and their env vars and particula
 4. Once the hooks are perfected, upgrade the plan so I can add hooks to other apps and see their data displayed in the dashboard. 
 
 5. Figure out how to get the *Routes* environment variable object and include it in the dash. This is tricky for the TW node app itself since the storage is not writeable once the Routes are available to be recorded in _postdeploy_ ... in theory it may be easier to get Routes when using multiple apps, if you redeploy the dashboard every time you deploy another app... still thinking about this... 
+
+## Bonus
+
+1. Since you can add a db with just one line in a YAML file, it would be cool to **run a database alongside this** and use a tiddlywiki plugin that works with a db. 
+
+2. You can **run an express server** on platform.sh, so like with the db, you can probably do some interesting stuff defining endpoints and whatnot with just YAML. 
